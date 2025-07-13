@@ -40,4 +40,8 @@ export class CrimeCardComponent {
       this.crimeService.updateCrimes();
     }
   }
+
+  deleteCrime(id: number) {
+    this.crimeService.deleteCrime(id);
+  }
 }
