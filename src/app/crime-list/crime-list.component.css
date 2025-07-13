@@ -1,0 +1,18 @@
+.crimes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  /* justify-content: center; */
+  margin: 30px 50px 50px 50px;
+  flex-direction: column;
+}
+
+.title h1 {
+  padding-bottom: 5px;
+}
+
+.crime-list {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}

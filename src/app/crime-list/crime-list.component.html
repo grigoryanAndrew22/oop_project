@@ -1,0 +1,17 @@
+<div class="crimes-container">
+  <div class="title">
+    <h1>Crime List</h1>
+    <small>
+      Clicking on a crime outputs its full info in the console and calls
+      <code style="border-radius: 5px; background: #d9d9e4">investigate()</code>
+      method. Clicking on 'favorite' icon will change its status randomly.
+    </small>
+  </div>
+  <div class="crime-list">
+    @if(crimes().length === 0) {
+    <p>No crimes were added.</p>
+    } @for (crime of crimes(); track crime.id) {
+    <app-crime-card [crimes]="crimes()" [crime]="crime" />
+    }
+  </div>
+</div>

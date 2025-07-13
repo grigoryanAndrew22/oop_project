@@ -1,0 +1,65 @@
+<div class="wrapper">
+  <div class="heading">
+    <h1>Crime Form</h1>
+    <p>Fill in information about the crime:</p>
+  </div>
+
+  <form [formGroup]="crimeForm" (ngSubmit)="onSubmit()">
+    <div class="crime-info">
+      <div class="form-control">
+        <label for="location">Location</label>
+        <input id="location" type="text" formControlName="location" />
+      </div>
+      <div class="form-control">
+        <label for="dateOccured">Occurence Date</label>
+        <input id="dateOccured" type="date" formControlName="dateOccured" />
+      </div>
+      <div class="form-control">
+        <label for="crimeType">Crime Type</label>
+        <select id="crimeType" type="date" formControlName="crimeType">
+          <option value="theft">Theft</option>
+          <option value="fraud">Fraud</option>
+          <option value="assault">Assault</option>
+          <option value="arson">Arson</option>
+        </select>
+      </div>
+      <div class="form-control">
+        @switch (crimeForm.get('crimeType')?.value) { @case ('theft') {
+        <label for="stolenItem">Stolen Item</label>
+        <input id="stolenItem" type="text" formControlName="stolenItem" />
+        } @case ('fraud') {
+        <label for="stolenItem">Fraud Method</label>
+        <input id="stolenItem" type="text" formControlName="fraudMethod" />
+        } @case ('assault') {
+        <label for="stolenItem">Victim Name</label>
+        <input id="stolenItem" type="text" formControlName="victimName" />
+        } @case ('arson') {
+        <label for="stolenItem">Damaged Place</label>
+        <input id="stolenItem" type="text" formControlName="damagedPlace" />
+        } }
+      </div>
+    </div>
+
+    <h3>Suspect Info</h3>
+    <div class="suspect-info" formGroupName="suspectInfo">
+      <div class="form-control">
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name" />
+      </div>
+      <div class="form-control">
+        <label for="age">Age</label>
+        <input id="age" type="number" formControlName="age" />
+      </div>
+      <div class="form-control">
+        <label for="address">Address</label>
+        <input id="address" type="text" formControlName="address" />
+      </div>
+    </div>
+
+    @if (crimeForm.invalid && submitted) {
+    <small class="warning">Please fill in all fields.</small>
+    }
+
+    <button class="submit" type="submit">Submit</button>
+  </form>
+</div>

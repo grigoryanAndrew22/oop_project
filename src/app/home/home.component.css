@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #6b7280;
+  height: 100vh;
+  gap: 30px;
+  font-size: large;
+}
+
+.title {
+  text-align: center;
+  position: fixed;
+  top: 60px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.home-option {
+  border: none;
+  background: rgb(152, 156, 152);
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  color: #f9fafb;
+  font-family: inherit;
+  font-size: large;
+}
+
+.home-option:hover {
+  background: rgb(129, 130, 129);
+}
