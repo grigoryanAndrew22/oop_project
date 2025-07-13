@@ -41,7 +41,8 @@ export class CrimeCardComponent {
     }
   }
 
-  deleteCrime(id: number) {
+  deleteCrime(id: number, event: Event) {
+    event.stopPropagation();
     this.crimeService.deleteCrime(id);
   }
 }

@@ -8,11 +8,12 @@ import {
 import { CrimeService } from '../services/crime.service';
 import { Arson, Assault, Fraud, Theft } from '../classes/crime.model';
 import { Status, Suspect } from '../interfaces/crime.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-crime-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './crime-form.component.html',
   styleUrl: './crime-form.component.css',
 })
@@ -25,9 +26,9 @@ export class CrimeFormComponent {
     location: new FormControl(null, Validators.required),
     dateOccured: new FormControl(null, Validators.required),
     crimeType: new FormControl('theft'),
-    stolenItem: new FormControl(),
-    fraudMethod: new FormControl(),
-    victimName: new FormControl(),
+    stolenItem: new FormControl(null as any, Validators.required),
+    fraudMethod: new FormControl(null as any, Validators.required),
+    victimName: new FormControl(null as any, Validators.required),
     damagedPlace: new FormControl(),
     suspectInfo: new FormGroup({
       name: new FormControl(null, Validators.required),
@@ -43,16 +44,15 @@ export class CrimeFormComponent {
 
     const values = this.crimeForm.value;
     if (
-      Object.values(values).some((value) => value === null) &&
-      !(
-        values.damagedPlace ||
-        values.fraudMethod ||
-        values.stolenItem ||
-        values.victimName
-      )
+      !values.dateOccured ||
+      (Object.values(values).some((value) => value === null) &&
+        !(
+          values.damagedPlace ||
+          values.fraudMethod ||
+          values.stolenItem ||
+          values.victimName
+        ))
     ) {
-      console.log(values.damagedPlace);
-      console.log('re');
       return;
     }
     const suspectInfo = this.crimeForm.get('suspectInfo')?.value;
@@ -108,15 +108,5 @@ export class CrimeFormComponent {
     this.crimeService.addCrime(crime);
     this.submitted = false;
     this.crimeForm.reset({ crimeType: 'theft' });
-    // {
-    //   location: null,
-    //   dateOccured: null,
-    //   crimeType: 'theft',
-    //   suspectInfo: {
-    //     name: null,
-    //     age: null,
-    //     address: null,
-    //   },
-    // }
   }
 }

@@ -1,4 +1,11 @@
 <div class="crimes-container">
+  <a routerLink="/" class="home-link">
+    <img
+      src="https://img.icons8.com/?size=100&id=357&format=png&color=000000"
+      alt="arrow-left"
+      width="35px"
+    />
+  </a>
   <div class="title">
     <h1>Crime List</h1>
     <small>
@@ -9,7 +16,7 @@
   </div>
   <div class="crime-list">
     @if(crimes().length === 0) {
-    <p>No crimes were added.</p>
+    <p>No crimes here.</p>
     } @for (crime of crimes(); track crime.id) {
     <app-crime-card [crimes]="crimes()" [crime]="crime" />
     }

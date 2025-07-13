@@ -1,10 +1,21 @@
 <div class="wrapper">
+  <a routerLink="/" class="home-link">
+    <img
+      src="https://img.icons8.com/?size=100&id=357&format=png&color=000000"
+      alt="arrow-left"
+      width="35px"
+    />
+  </a>
   <div class="heading">
     <h1>Crime Form</h1>
     <p>Fill in information about the crime:</p>
   </div>
 
-  <form [formGroup]="crimeForm" (ngSubmit)="onSubmit()">
+  <form
+    [formGroup]="crimeForm"
+    (ngSubmit)="onSubmit()"
+    [class.submitted]="submitted"
+  >
     <div class="crime-info">
       <div class="form-control">
         <label for="location">Location</label>
