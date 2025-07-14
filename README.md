@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
 
+## Project Description
+Idea is to create a crime cases database to store crimes that have been reported and observe their basic info and status. You can also add new crimes by filling the form. Main object is Crime, which has different types (polymorphism) and methods (currently 1 method but with option of it being overriden depending on subclass) inherited from abstract "Crime" class.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -25,3 +28,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
