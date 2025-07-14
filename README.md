@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
 
 ## Project Description
-Idea is to create a crime cases database to store crimes that have been reported and observe their basic info and status. You can also add new crimes by filling the form. Main object is Crime, which has different types (polymorphism) and methods (currently 1 method but with option of it being overriden depending on subclass) inherited from abstract "Crime" class.
+Idea is to create a crime cases database to store crimes that have been reported and observe their basic info and status. You can also add new crimes by filling the form and modify status of existing ones. Main object is Crime, which has different types (polymorphism) and methods (currently 1 method but with option of it being overriden depending on subclass) inherited from abstract "Crime" class.
 
 ## Development server
 
